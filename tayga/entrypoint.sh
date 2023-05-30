@@ -6,16 +6,16 @@
 set -ex
 
 # Shutdown handler
-cleanup() {
-    echo "Caught shutdown signal. Cleaning up network interfaces"
+# cleanup() {
+#     echo "Caught shutdown signal. Cleaning up network interfaces"
     
-    # Kill tayga
-    killall tayga
+#     # Kill tayga
+#     killall tayga
     
-    # Bring down the nat interface
-    ip link del dev nat64
-}
-trap cleanup SIGINT SIGTERM
+#     # Bring down the nat interface
+#     ip link del dev nat64
+# }
+# trap cleanup SIGINT SIGTERM
 
 # Generate the config file
 mkdir -p /var/db/tayga
@@ -47,7 +47,7 @@ iptables -t nat -A POSTROUTING -s 100.64.0.0/10 -o $WAN_INTERFACE -j SNAT --to-s
 tayga -d
 
 # Wait for the process to exit
-wait
+# wait
 
 # Clean up
-cleanup
+# cleanup
