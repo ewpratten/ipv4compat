@@ -19,7 +19,7 @@ services:
 
   # DNS64
   coredns:
-    image: coredns/coredns:1
+    image: coredns/coredns:latest
     restart: unless-stopped
     ports:
       - "[2602:faf5::]:53:53/udp"
