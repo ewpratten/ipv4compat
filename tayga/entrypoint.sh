@@ -43,14 +43,11 @@ ip route add 64:ff9b::/96 dev nat64
 iptables -A FORWARD -i nat64 -o $WAN_INTERFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -t nat -A POSTROUTING -s 100.64.0.0/10 -o $WAN_INTERFACE -j SNAT --to-source $SNAT_IPV4
 
-# Start Tayga. Run cleanup if it is killed
-tayga -d || cleanup
+# Start Tayga
+tayga -d
 
-# # Start Tayga
-# tayga -d
+# Wait for the process to exit
+wait
 
-# # Wait for the process to exit
-# wait
-
-# # Clean up
-# cleanup
+# Clean up
+cleanup
