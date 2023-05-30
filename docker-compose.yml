@@ -15,3 +15,4 @@ services:
       SNAT_IPV4: 23.142.232.26
       TAYGA_IPV6: "2602:faf5:64::"
       WAN_INTERFACE: enp1s0
+    privileged: true
