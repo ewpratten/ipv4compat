@@ -23,3 +23,5 @@ services:
     network_mode: host
     volumes:
       - ./coredns/Corefile:/etc/coredns/Corefile
+    command: 
+      - -conf /etc/coredns/Corefile
