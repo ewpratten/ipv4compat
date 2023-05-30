@@ -13,7 +13,7 @@ cleanup() {
     killall tayga
     
     # Bring down the nat interface
-    ip link set dev nat64 down
+    ip link del dev nat64
 }
 trap cleanup SIGINT SIGTERM
 
@@ -30,6 +30,7 @@ cat >/usr/local/etc/tayga.conf <<EOD
 EOD
 
 # Tell Tayga to generate the translation interface
+ip link del dev nat64 || true
 tayga --mktun
 
 # Configure the translation interface
