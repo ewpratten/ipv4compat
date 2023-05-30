@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  # NAT64
+  tayga:
+    build:
+      context: ./tayga
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    environment:
+      SNAT_IPV4: 23.142.232.26
+      TAYGA_IPV6: "2602:faf5:64::"
+      WAN_INTERFACE: enp1s0
