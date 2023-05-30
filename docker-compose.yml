@@ -22,6 +22,7 @@ services:
     image: coredns/coredns:latest
     restart: unless-stopped
     ports:
+      - "[2602:faf5::]:53:53"
       - "[2602:faf5::]:53:53/udp"
     volumes:
       - ./coredns/Corefile:/etc/coredns/Corefile
