@@ -3,7 +3,7 @@
 # - $SNAT_IPV4: The IPv4 address to use for SNAT
 # - $TAYGA_IPV6: An IPv6 address to assign to Tayga
 # - $WAN_INTERFACE: The name of the WAN interface
-set -e
+set -ex
 
 # Shutdown handler
 cleanup() {
