@@ -16,3 +16,12 @@ services:
       TAYGA_IPV6: "2602:faf5:64::"
       WAN_INTERFACE: enp1s0
     privileged: true
+
+  # DNS64
+  coredns:
+    image: coredns/coredns:1
+    restart: unless-stopped
+    ports:
+      - "[2602:faf5::]:53:53/udp"
+    volumes:
+      - ./coredns/Corefile:/etc/coredns/Corefile
