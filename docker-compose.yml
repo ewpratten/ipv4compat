@@ -24,4 +24,5 @@ services:
     volumes:
       - ./coredns/Corefile:/etc/coredns/Corefile
     command: 
-      - -conf /etc/coredns/Corefile
+      - -conf
+      - /etc/coredns/Corefile
