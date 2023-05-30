@@ -19,6 +19,7 @@ trap cleanup SIGINT SIGTERM
 
 # Generate the config file
 mkdir -p /var/db/tayga
+mkdir -p /usr/local/etc
 cat >/usr/local/etc/tayga.conf <<EOD
     tun-device nat64
     ipv4-addr 100.64.0.1
@@ -27,7 +28,6 @@ cat >/usr/local/etc/tayga.conf <<EOD
     dynamic-pool 100.64.0.0/10
     data-dir /var/db/tayga
 EOD
-cat /usr/local/etc/tayga.conf
 
 # Tell Tayga to generate the translation interface
 tayga --mktun
