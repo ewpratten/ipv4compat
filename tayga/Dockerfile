@@ -20,6 +20,7 @@ FROM alpine:3.18
 
 # Install runtime dependencies
 RUN apk add --no-cache iproute2
+RUN apk add --no-cache bash
 
 # Copy tayga binary
 COPY --from=builder /usr/local/sbin/tayga /usr/local/sbin/tayga
@@ -28,4 +29,4 @@ COPY --from=builder /usr/local/sbin/tayga /usr/local/sbin/tayga
 COPY entrypoint.sh /entrypoint.sh
 
 # Set entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["bash", "/entrypoint.sh"]
