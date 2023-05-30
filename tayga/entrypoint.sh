@@ -19,14 +19,14 @@ trap cleanup SIGINT SIGTERM
 
 # Generate the config file
 mkdir -p /var/db/tayga
-cat <<EOF > /usr/local/etc/tayga.conf
+cat >/usr/local/etc/tayga.conf <<EOD
     tun-device nat64
     ipv4-addr 100.64.0.1
     ipv6-addr $TAYGA_IPV6
     prefix 64:ff9b::/96
     dynamic-pool 100.64.0.0/10
     data-dir /var/db/tayga
-EOF
+EOD
 
 # Tell Tayga to generate the translation interface
 tayga --mktun
