@@ -27,6 +27,7 @@ cat >/usr/local/etc/tayga.conf <<EOD
     dynamic-pool 100.64.0.0/10
     data-dir /var/db/tayga
 EOD
+cat /usr/local/etc/tayga.conf
 
 # Tell Tayga to generate the translation interface
 tayga --mktun
