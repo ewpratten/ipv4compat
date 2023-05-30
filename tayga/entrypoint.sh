@@ -19,7 +19,7 @@ trap cleanup SIGINT SIGTERM
 
 # Generate the config file
 mkdir -p /var/db/tayga
-cat <<EOF > /var/db/tayga/tayga.conf
+cat <<EOF > /usr/local/etc/tayga.conf
     tun-device nat64
     ipv4-addr 100.64.0.1
     ipv6-addr $TAYGA_IPV6
